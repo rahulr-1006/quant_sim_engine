@@ -1,0 +1,32 @@
+# Python bytecode
+__pycache__/
+*.py[cod]
+
+# Virtual environments
+venv/
+.env/
+
+# Logs and temp files
+*.log
+*.tmp
+logs/
+
+# Data files
+data/*.csv
+
+# Jupyter
+.ipynb_checkpoints/
+
+# macOS
+.DS_Store
+
+# VSCode
+.vscode/
+
+^G
+
+
+
+a
+d qa
+d
