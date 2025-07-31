@@ -1,57 +1,5 @@
-# 📘 Real-Time Quant Backtester & Execution Simulator
 
-**Last Updated:** 2025-07-28 09:30:16
-
-This project is a modular, event-driven backtesting and execution simulation framework designed for **realistic modeling of algorithmic trading strategies** on **tick-level financial data**.
-
-Unlike traditional vectorized backtesters that assume perfect execution and unrealistic fills, this engine simulates the full **signal-to-execution pipeline** with real-world constraints in mind — **slippage**, **latency**, **queue dynamics**, and **execution algorithms** like **VWAP**, **TWAP**, and **POV**.
-
----
-
-## 🎯 Why This Project Matters
-
-In quantitative trading, designing alpha models is only half the battle. How you **execute** those models in the market — given latency, liquidity, and slippage — can make or break your edge. This project was built to bridge that gap.
-
-It reflects the real-world concerns of quant trading desks:
-
-- Can our strategy survive under real-time conditions?
-- How much does execution cost eat into our alpha?
-- What are the risks of poor liquidity or delayed fills?
-
----
-
-## 🛠️ Key Features
-
-- ✅ Tick-level, event-driven architecture simulating real market flow.
-- ✅ Limit Order Book simulator with market/limit/cancel order support.
-- ✅ Execution algorithms: VWAP, TWAP, POV with dynamic slicing.
-- ✅ Latency + slippage modeling to reflect execution realism.
-- ✅ Modular alpha signal integration for plug-and-play strategy testing.
-- ✅ Built-in risk and performance analytics (Sharpe, drawdown, win rate).
-- ✅ Optional C++ optimizations for low-latency order matching.
-
----
-
-## 👨‍💻 Tech Stack
-
-- **Python** for core infrastructure
-- **C++** (optional) for performance-critical modules
-- **Matplotlib / Streamlit** for analytics and dashboards
-- **NumPy / Pandas** for performance analysis
-- **pybind11** for Python-C++ bindings (planned)
-
----
-
-## 📌 Use Cases
-
-- Backtest high-frequency or low-latency strategies on real data.
-- Compare different execution strategies under adverse conditions.
-- Study the interaction between alpha strength and execution cost.
-- Showcase professional-grade trading infra engineering on your resume.
-
----
-
-## 🗓️ Project Progress Journal
+# 🗓️ Project Progress Journal
 
 > Each week has a section logging technical progress **and learning rationale**.
 
