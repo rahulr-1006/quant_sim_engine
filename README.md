@@ -145,8 +145,9 @@ quant_backtester/
 ## 🎓 Author & Contact
 
 **Rahul Ramakrishnan** \\
-Quant systems enthusiast building infrastructure from scratch as part of a long-term prep journey.
-📧 [GitHub](https://github.com/rahulr-1006) · 💼 [LinkedIn]([https://www.linkedin.com/in/rahulr-1006](https://www.linkedin.com/in/rahul-ramakrishnan10062003/))
+Quant systems enthusiast building infrastructure from scratch as part of a long-term prep journey. \\
+- [GitHub](https://github.com/rahulr-1006)
+- [LinkedIn]([https://www.linkedin.com/in/rahulr-1006](https://www.linkedin.com/in/rahul-ramakrishnan10062003/))
 
 ---
 
