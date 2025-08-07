@@ -53,7 +53,7 @@ This project provides a realistic simulation environment to answer:
           +-------------------+
           |      Ledger       |
           +-------------------+
-````
+
 
 ---
 
@@ -138,3 +138,5 @@ This project is built as a technical showcase of quant systems engineering and a
 ---
 
 For detailed weekly progress and technical logs, see the [progress tracker](PROGRESS.md).
+
+````
