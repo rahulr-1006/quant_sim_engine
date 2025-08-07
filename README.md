@@ -1,4 +1,3 @@
-````markdown
 # Real-Time Quant Backtester & Execution Simulator
 
 A modular, event-driven framework for **simulating algorithmic trading strategies** with realistic market execution. This engine operates on tick-level data and models key market frictions such as **slippage**, **latency**, **queue dynamics**, and **execution cost**—factors often ignored in traditional backtests.
@@ -138,5 +137,3 @@ This project is built as a technical showcase of quant systems engineering and a
 ---
 
 For detailed weekly progress and technical logs, see the [progress tracker](PROGRESS.md).
-
-````
