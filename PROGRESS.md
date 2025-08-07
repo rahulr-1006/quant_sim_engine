@@ -1,60 +1,37 @@
-# 📘 Real-Time Quant Backtester & Execution Simulator
+#  🗓️ Project Progress Journal
 
-**Last Updated:** 2025-07-28 09:30:16
+**Last Updated:** 2025-08-07 04:44:24
 
-This project is a modular, event-driven backtesting and execution simulation framework designed for **realistic modeling of algorithmic trading strategies** on **tick-level financial data**.
+Each week has a section logging technical progress **and learning rationale**.
 
-Unlike traditional vectorized backtesters that assume perfect execution and unrealistic fills, this engine simulates the full **signal-to-execution pipeline** with real-world constraints in mind — **slippage**, **latency**, **queue dynamics**, and **execution algorithms** like **VWAP**, **TWAP**, and **POV**.
+### Week 1: Project Setup + Data Ingestion
 
----
+#### Tasks Completed:
 
-## 🎯 Why This Project Matters
+* [x] Initialized GitHub repository with modular folder structure (`core/`, `data/`, `notebooks/`, `streamlit_dashboard/`)
+* [x] Downloaded LOBSTER Amazon Level 1 sample data (`AMZN_message.csv`) for 2012-06-21 10:00 AM
+* [x] Verified the LOBSTER message file schema manually by inspecting a few rows in a Jupyter notebook
+* [x] Parsed message file using `pandas.read_csv()` with manually set `names` and `header=None`
 
-In quantitative trading, designing alpha models is only half the battle. How you **execute** those models in the market — given latency, liquidity, and slippage — can make or break your edge. This project was built to bridge that gap.
+  * Added conversion logic: `price = price / 10000` to handle LOBSTER's fixed-point encoding
+* [x] Created a `MarketEvent` structure as a Python `@dataclass` (later merged into logic directly)
 
-It reflects the real-world concerns of quant trading desks:
+  * Fields: `timestamp`, `event_type`, `order_id`, `size`, `price`, `direction`
+* [x] Manually iterated through the first few events to check parsing accuracy and value types
+* [x] Created a utility loader function `load_message_data()` to return a clean `DataFrame`
+* [x] Normalized `direction` to ±1 for all applicable message types
+* [x] Logged early examples to console to verify correct parsing and value ranges (e.g., timestamp float precision, order ID dtype, etc.)
+* [x] Created `core/data_loader.py` (later merged into Streamlit app for simplicity)
 
-- Can our strategy survive under real-time conditions?
-- How much does execution cost eat into our alpha?
-- What are the risks of poor liquidity or delayed fills?
+#### 🔍 Design Decisions:
 
----
+* Decided not to use the `orderbook` file yet — Level 1 best bid/ask can be derived dynamically
+* Converted timestamps to float without changing to datetime, to retain compatibility with event loop
+* Focused on getting a minimal, robust pipeline from CSV to event stream, deferring order logic to Week 2
 
-## 🛠️ Key Features
+#### 🧠 Learning Reflections:
 
-- ✅ Tick-level, event-driven architecture simulating real market flow.
-- ✅ Limit Order Book simulator with market/limit/cancel order support.
-- ✅ Execution algorithms: VWAP, TWAP, POV with dynamic slicing.
-- ✅ Latency + slippage modeling to reflect execution realism.
-- ✅ Modular alpha signal integration for plug-and-play strategy testing.
-- ✅ Built-in risk and performance analytics (Sharpe, drawdown, win rate).
-- ✅ Optional C++ optimizations for low-latency order matching.
-
----
-
-## 👨‍💻 Tech Stack
-
-- **Python** for core infrastructure
-- **C++** (optional) for performance-critical modules
-- **Matplotlib / Streamlit** for analytics and dashboards
-- **NumPy / Pandas** for performance analysis
-- **pybind11** for Python-C++ bindings (planned)
-
----
-
-## 📌 Use Cases
-
-- Backtest high-frequency or low-latency strategies on real data.
-- Compare different execution strategies under adverse conditions.
-- Study the interaction between alpha strength and execution cost.
-- Showcase professional-grade trading infra engineering on your resume.
-
----
-
-## 🗓️ Project Progress Journal
-
-> Each week has a section logging technical progress **and learning rationale**.
-
+This week was all about getting the raw data in cleanly. I realized early that even parsing "simple" LOBSTER files is annoying without careful column setup, especially the fixed-point price and float timestamps. Having a clean, well-named DataFrame made everything smoother down the line. Starting with a known dataset also gave me confidence the bugs were mine, not in the data.
 ---
 
 ### Week 2: Order Book Matching Engine (Detailed Report)
@@ -134,5 +111,5 @@ Week 2 was me wrestling with the core matching logic. Writing an order book from
 
 ### Reflection:
 
-Week 3 was all about connecting the pieces: from market events to strategy orders to execution fills and position updates. The AlwaysTakeLiquidityStrategy was a perfect first test since it’s straightforward but forces full pipeline execution. Seeing my strategy trades hit the order book and update the UI gave me a huge boost of confidence. Next steps are making the strategy plug-in architecture more flexible and adding realistic latency — that will make things way more interesting.
+Week 3 was all about connecting the pieces: from market events to strategy orders to execution fills and position updates. The AlwaysTakeLiquidityStrategy was a perfect first test since it’s straightforward but forces full pipeline execution. Seeing my strategy trades hit the order book and update the UI gave me a huge boost of confidence. Next steps are making the strategy plug-in architecture more flexible and adding realistic latency, that will make things way more interesting.
 ```
