@@ -32,6 +32,7 @@ Each week has a section logging technical progress **and learning rationale**.
 #### 🧠 Learning Reflections:
 
 This week was all about getting the raw data in cleanly. I realized early that even parsing "simple" LOBSTER files is annoying without careful column setup, especially the fixed-point price and float timestamps. Having a clean, well-named DataFrame made everything smoother down the line. Starting with a known dataset also gave me confidence the bugs were mine, not in the data.
+
 ---
 
 ### Week 2: Order Book Matching Engine (Detailed Report)
